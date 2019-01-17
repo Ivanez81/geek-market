@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Vue Shop Page</title>
+
+    <!--<script type="text/javascript" th:src="@{/webjars/jquery/3.3.1/dist/jquery.min.js}"></script>-->
+    <!--<script type="text/javascript" th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>-->
+    <!--<link type="text/css" rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}"/>-->
+
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>-->
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <!--Vue-->
+    <script src="http://unpkg.com/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,900&amp;subset=cyrillic" rel="stylesheet">
+    <!--css-->
+    <link th:href="@{/css/shop.css}" rel="stylesheet" type="text/css">
+    
+</head>
+
+<body>
+   
+    <div th:replace="~{navigation :: navi(Shop)}" />
+
+    <div class="main">
+        <div id="shop-content" class="padding-site">
+            <product-list v-for="product in products" :key="product.id"
+                :product="product">    
+            </product-list>
+        </div>
+
+
+    </div>
+
+<script>
+    Vue.component('product-list', {
+        props: ['product'],
+        template: '' +
+            '<figure class="product-list">' +
+            '<a href="#">' +
+            '<img :src=product.imagePath alt="">' +
+            '<p>{{product.category.title}}</p>' +
+            '<figcaption>' +
+            '<p>{{product.title}}</p>' +
+            '<p>{{product.shortDescription}}</p>' +
+            '<p class="price">Цена: {{product.price}}</p>' +
+            '</figcaption>' +
+            '</a>' +
+            '<button type="submit" class="buy" @click="addToCartComponent(product.id)">Купить</button>' +
+            '</figure>' +
+        '',
+        methods: {
+            addToCartComponent(value) {
+                this.$root.$emit('add', value);
+                console.log(value);
+            }
+        },
+    });
+    
+    new Vue({
+        el: "#shop-content",
+        
+//        template: '<product-list @add="addToCart(value)"></product-list>',
+            
+        data: {
+            products: [{
+                id: "",
+                category: {
+                    id: "",
+                    title: ""
+                },
+                vendorCode: "",
+                imagePath: "",
+                title: "",
+                shortDescription: "",
+                fullDescription: "",
+                price: "",
+                createAt: "",
+                updateAt: ""
+            }]
+        },
+        
+        created() {
+            var vm = this;
+            this.$http.get('/geekmarket/api/products')
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    vm.products = data;
+                })
+                .catch(function(error) {
+                    console.log(error.statusText);
+                });
+        },
+        
+        methods: {
+            addToCart(value) {
+                this.$http.post('/geekmarket/api/cart_items', {
+                    id: value
+                })
+                .catch(function(error) {
+                    console.log(error.statusText);
+                });
+            }
+        },
+            
+    });
+</script>
+
+</body>
+</html>
