@@ -103,16 +103,16 @@
                 });
         },
         
-        methods: {
-            addToCart(value) {
-                this.$http.post('/geekmarket/api/cart_items', {
-                    id: value
-                })
-                .catch(function(error) {
-                    console.log(error.statusText);
-                });
-            }
-        },
+        // methods: {
+        //     addToCart(value) {
+        //         this.$http.post('/geekmarket/api/cart_items', {
+        //             id: value
+        //         })
+        //         .catch(function(error) {
+        //             console.log(error.statusText);
+        //         });
+        //     }
+        // },
             
     });
 </script>
