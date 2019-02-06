@@ -68,8 +68,8 @@
     
     new Vue({
         el: "#shop-content",
-        
-//        template: '<product-list @add="addToCart(value)"></product-list>',
+                
+        template: '<product-list @add="addToCart"></product-list>',
             
         data: {
             products: [{
@@ -103,16 +103,16 @@
                 });
         },
         
-        // methods: {
-        //     addToCart(value) {
-        //         this.$http.post('/geekmarket/api/cart_items', {
-        //             id: value
-        //         })
-        //         .catch(function(error) {
-        //             console.log(error.statusText);
-        //         });
-        //     }
-        // },
+         methods: {
+             addToCart(value) {
+                 this.$http.post('/geekmarket/api/cart_items', {
+                     id: value
+                 })
+                 .catch(function(error) {
+                     console.log(error.statusText);
+                 });
+             }
+         },
             
     });
 </script>
