@@ -131,6 +131,23 @@ VALUES
 
 INSERT INTO products (category_id, vendor_code, image, title, short_description, full_description, price)
 VALUES
-(1, "00000001", "null", "40\" Телевизор Samsung UE40NU7170U", "Коротко: Хороший телевизор Samsung 40", "LED телевизор Samsung 40", 26000.00),
-(1, "00000002", "null", "48\" Телевизор Samsung UE48NU7170U", "Коротко: Хороший телевизор Samsung 48", "LED телевизор Samsung 48", 32000.00),
-(1, "00000003", "null", "56\" Телевизор Samsung UE56NU7170U", "Коротко: Хороший телевизор Samsung 56", "LED телевизор Samsung 56", 44000.00);
+(1, '00000001', '../images/sony.png', '40\' Телевизор Samsung UE40NU7170U', 'Коротко: Хороший телевизор Samsung 40', 'LED телевизор Samsung 40', 26000.00),
+(1, '00000002', '../images/sony.png', '48\' Телевизор Samsung UE48NU7170U', 'Коротко: Хороший телевизор Samsung 48', 'LED телевизор Samsung 48', 32000.00),
+(1, '00000003', '../images/sony.png', '56\' Телевизор Samsung UE56NU7170U', 'Коротко: Хороший телевизор Samsung 56', 'LED телевизор Samsung 56', 44000.00),
+(1, '00000004', '../images/sony.png', '40\' Телевизор Samsung UE40NU7170U', 'Коротко: Хороший телевизор Samsung 40', 'LED телевизор Samsung 40', 26000.00),
+(1, '00000005', '../images/sony.png', '48\' Телевизор Samsung UE48NU7170U', 'Коротко: Хороший телевизор Samsung 48', 'LED телевизор Samsung 48', 32000.00),
+(1, '00000006', '../images/sony.png', '56\' Телевизор Samsung UE56NU7170U', 'Коротко: Хороший телевизор Samsung 56', 'LED телевизор Samsung 56', 44000.00),
+(1, '00000007', '../images/sony.png', '40\' Телевизор Samsung UE40NU7170U', 'Коротко: Хороший телевизор Samsung 40', 'LED телевизор Samsung 40', 26000.00),
+(1, '00000008', '../images/sony.png', '48\' Телевизор Samsung UE48NU7170U', 'Коротко: Хороший телевизор Samsung 48', 'LED телевизор Samsung 48', 32000.00),
+(1, '00000009', '../images/sony.png', '56\' Телевизор Samsung UE56NU7170U', 'Коротко: Хороший телевизор Samsung 56', 'LED телевизор Samsung 56', 44000.00),
+(1, '00000010', '../images/sony.png', '56\' Телевизор Samsung UE56NU7170U', 'Коротко: Хороший телевизор Samsung 56', 'LED телевизор Samsung 56', 44000.00),
+(1, '00000011', '../images/sony.png', '40\' Телевизор Samsung UE40NU7170U', 'Коротко: Хороший телевизор Samsung 40', 'LED телевизор Samsung 40', 26000.00),
+(1, '00000012', '../images/sony.png', '48\' Телевизор Samsung UE48NU7170U', 'Коротко: Хороший телевизор Samsung 48', 'LED телевизор Samsung 48', 32000.00),
+(1, '00000013', '../images/sony.png', '56\' Телевизор Samsung UE56NU7170U', 'Коротко: Хороший телевизор Samsung 56', 'LED телевизор Samsung 56', 44000.00),
+(1, '00000014', '../images/sony.png', '40\' Телевизор Samsung UE40NU7170U', 'Коротко: Хороший телевизор Samsung 40', 'LED телевизор Samsung 40', 26000.00),
+(1, '00000015', '../images/sony.png', '48\' Телевизор Samsung UE48NU7170U', 'Коротко: Хороший телевизор Samsung 48', 'LED телевизор Samsung 48', 32000.00),
+(1, '00000016', '../images/sony.png', '56\' Телевизор Samsung UE56NU7170U', 'Коротко: Хороший телевизор Samsung 56', 'LED телевизор Samsung 56', 44000.00),
+(1, '00000017', '../images/sony.png', '40\' Телевизор Samsung UE40NU7170U', 'Коротко: Хороший телевизор Samsung 40', 'LED телевизор Samsung 40', 26000.00),
+(1, '00000018', '../images/sony.png', '48\' Телевизор Samsung UE48NU7170U', 'Коротко: Хороший телевизор Samsung 48', 'LED телевизор Samsung 48', 32000.00),
+(1, '00000019', '../images/sony.png', '56\' Телевизор Samsung UE56NU7170U', 'Коротко: Хороший телевизор Samsung 56', 'LED телевизор Samsung 56', 44000.00),
+(1, '00000020', '../images/sony.png', '56\' Телевизор Samsung UE56NU7170U', 'Коротко: Хороший телевизор Samsung 56', 'LED телевизор Samsung 56', 44000.00);
