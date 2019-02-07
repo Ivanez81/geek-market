@@ -4,15 +4,6 @@
     <meta charset="utf-8"/>
     <title>Vue Shop Page</title>
 
-    <!--<script type="text/javascript" th:src="@{/webjars/jquery/3.3.1/dist/jquery.min.js}"></script>-->
-    <!--<script type="text/javascript" th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>-->
-    <!--<link type="text/css" rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}"/>-->
-
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">-->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>-->
-
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -34,7 +25,7 @@
     <div class="main">
         <div id="shop-content" class="padding-site">
             <product-list v-for="product in products" :key="product.id"
-                :product="product">    
+                :product="product" @add="addToCart(product.id)">    
             </product-list>
         </div>
 
@@ -60,7 +51,15 @@
         '',
         methods: {
             addToCartComponent(value) {
-                this.$root.$emit('add', value);
+                var formData = new FormData();
+                formData.append('id', value);
+                this.$http.post('/geekmarket/api/cart_items', formData)
+                .then(response => {
+                    console.log(response.data);
+                }) 
+                .catch(function(error) {
+                    console.log(error.statusText);
+                });
                 console.log(value);
             }
         },
@@ -69,8 +68,6 @@
     new Vue({
         el: "#shop-content",
         
-//        template: '<product-list @add="addToCart(value)"></product-list>',
-            
         data: {
             products: [{
                 id: "",
@@ -101,17 +98,6 @@
                 .catch(function(error) {
                     console.log(error.statusText);
                 });
-        },
-        
-        methods: {
-            addToCart(value) {
-                this.$http.post('/geekmarket/api/cart_items', {
-                    id: value
-                })
-                .catch(function(error) {
-                    console.log(error.statusText);
-                });
-            }
         },
             
     });
